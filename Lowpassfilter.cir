@@ -1,0 +1,18 @@
+Low Pass Filter
+* Cutoff frequency is  65 KHz
+R1 1 2 816
+* resistance is 816 ohm
+C1 2 0 3n
+* capacitance is 3nF
+Vin 1 0 dc 0 ac 1
+*Comment
+.control
+*Comment
+ac dec 10 1 1Meg
+*Comment
+set color0 = white
+set color1 = black
+set color2 = blue
+*Comment
+plot vdb(2) 
+.endc

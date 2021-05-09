@@ -1,0 +1,18 @@
+High Pass Filter
+* Cutoff frequency is 60 Hz
+R2 2 0 1326
+* resistance is 1326
+C2 1 2 2u
+* capacitance is 2uF
+Vin 1 0 dc 0 ac 1
+*Comment
+.control
+*Comment
+ac dec 10 1 1Meg
+* to verify cutoff frequency using plot we need to check y-value -3db and x-value there is our cutoff frequency
+set color0 = white
+set color1 = black
+set color2 = blue
+*Comment
+plot vdb(2) 
+.endc

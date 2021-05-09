@@ -1,0 +1,22 @@
+Band Pass Filter
+* Cutoff frequencies are  60 Hz and 65 KHz
+R1 2 0 1326
+* resistance is 1326 ohm
+R2 2 3 816
+* resistance is 816 ohm
+C1 1 2 2u
+* capacitance is 2uF
+C2 3 0 3n
+* capacitance is 3nF
+Vin 1 0 dc 0 ac 1
+*Comment
+.control
+*Comment
+ac dec 10 1 1Meg
+* to verify cutoff frequency using plot we need to check y-value -3db and x-value there is our cutoff frequency
+set color0 = white
+set color1 = black
+set color2 = blue
+*Comment
+plot vdb(3) 
+.endc
