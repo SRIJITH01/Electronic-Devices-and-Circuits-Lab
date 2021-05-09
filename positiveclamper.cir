@@ -1,0 +1,25 @@
+positive clamper
+*
+R1 2 0 10k
+C1 1 2 1u
+*capacitance should be chosed appropriately
+V1 0 1 sin(0 5 1k)
+*for voltage 5v
+D1 0 2 diode
+*
+.model diode d
+.tran 0.001ms 0.01s
+*if frequency is changed change time accordingly
+.control
+*
+set color0 = white
+set color1 = black
+set color2 = blue
+set xbrushwidth=2
+run
+*
+plot  v(1) v(2) ylabel Outputvoltage  title positiveclamper
+*
+.endc
+.end
+*EE19BTECH11041

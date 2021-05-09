@@ -1,0 +1,28 @@
+Nand Gate
+*
+vdd 2 0 dc 5v
+vin 1 0 dc 0 PULSE(0 5 0 0.1NS 0.1NS 50NS 100NS)
+vina 4 0 dc 0 PULSE(0 5 0 0.1NS 0.1NS 100NS 200NS)
+*for voltage 5v
+m1 3 1 2 2 p1
+m2 3 4 2 2 p1
+m3 3 1 5 0 n1
+m4 5 4 0 0 n1
+*
+.model p1 PMOS W=10u
+.model n1 NMOS W=10u
+.tran 0.001Ns 400Ns
+*voltage simulation
+.control
+*
+set color0 = white
+set color1 = black
+set color2 = blue
+set color3 = red
+set color4 = orange
+set xbrushwidth=2
+run
+plot 12+v(3) v(1) 6+v(4)
+.endc
+.end
+*EE19BTECH11041

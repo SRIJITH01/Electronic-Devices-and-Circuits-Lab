@@ -1,0 +1,29 @@
+half wave rectifier
+*
+R1 1 2 100
+*resistance
+V1 0 1 sin(0 5 1k)
+*for voltage 5v
+D1 2 3 diode
+D2 3 4 diode
+D3 4 0 diode
+
+D4 0 5 diode
+D5 5 2 diode
+*
+.model diode d
+.tran 0.001ms 4ms
+*if frequency is changed change time accordingly
+.control
+*
+set color0 = white
+set color1 = black
+set color2 = blue
+set xbrushwidth=2
+run
+*
+plot  v(1) v(2) ydelta 0.5 ylabel Outputvoltage  title Halfwaverectifier
+*
+.endc
+.end
+*EE19BTECH11041

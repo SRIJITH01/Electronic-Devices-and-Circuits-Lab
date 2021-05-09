@@ -1,0 +1,21 @@
+I-V Characteristics of NMOS
+*Fixing gate bias 
+vgg 1 0 dc 1v
+*Specifying NMOS in this manner-
+m1 3 1 0 0 n1
+rd 3 4 1k
+*DC source of 0v to measure current
+vid 5 4 dc 0v
+vdd 5 0 dc 3v
+.model n1 NMOS
+*DC analysis to sweep vdd from 0 to 8 uncomment below dc for vdd varying and comment vgg accordingly
+*.dc vdd 0 8 0.01
+.dc vgg 0 8 0.01
+.control
+run
+print i(vdd) > plot_data_id(1).txt
+plot -i(vdd) vs v(1)
+*plot -i(vdd) vs v(4)
+* for I Vs vdd uncomment above
+.endc
+.end
